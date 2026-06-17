@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Love?</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+h1 {
+    color: #ff4b6e;
+    font-size: 35px;
+}
+
+p {
+    color: #555;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+button {
+    padding: 14px 30px;
+    margin: 15px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yes {
+    background: #ff4b6e;
+    color: white;
+}
+
+#yes:hover {
+    transform: scale(1.1);
+}
+
+#no {
+    background: #ddd;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255,0,80,0.4);
+    font-size: 25px;
+    animation: float 5s infinite;
+}
+
+@keyframes float {
+
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-10vh);
+    }
+
+}
+
+#message {
+    margin-top: 20px;
+    color: #ff4b6e;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="card">
+
+<h1 id="title">
+💖 Will You Be My Love? 💖
+</h1>
+
+<p id="text">
+I have something special to ask you...<br>
+Will you make beautiful memories with me? ❤️
+</p>
+
+
+<button id="yes" onclick="yesClick()">
+Yes ❤️
+</button>
+
+
+<button id="no" onclick="moveNo()">
+No 😢
+</button>
+
+
+<div id="message" class="hidden">
+Yay!! 💕 I knew you loved me ❤️
+</div>
+
+
+</div>
+
+
+
+<script>
+
+function yesClick(){
+
+    document.getElementById("message")
+    .classList.remove("hidden");
+
+    document.getElementById("title").innerHTML =
+    "💖 You Made Me Happy 💖";
+
+    document.getElementById("text").innerHTML =
+    "Thank you for choosing me ❤️";
+
+}
+
+
+
+function moveNo(){
+
+    let no = document.getElementById("no");
+
+    no.style.position = "absolute";
+
+    no.style.left = Math.random()*80 + "vw";
+
+    no.style.top = Math.random()*80 + "vh";
+
+
+    document.getElementById("title").innerHTML =
+    "🥺 Are You Sure? 💖";
+
+    document.getElementById("text").innerHTML =
+    "Please think again... I really like you ❤️";
+
+}
+
+
+
+// floating hearts
+
+for(let i = 0; i < 40; i++){
+
+    let heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "❤️";
+
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.animationDuration =
+    (3 + Math.random()*5) + "s";
+
+
+    heart.style.fontSize =
+    (15 + Math.random()*25) + "px";
+
+
+    document.body.appendChild(heart);
+
+}
+
+
+</script>
+
+
+</body>
+</html>
